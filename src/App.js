@@ -10,7 +10,7 @@ const GitHubUser = ({ login }) => {
 
   useEffect(() => {
     if (!data) return;
-    if (data.login === login) return;
+    // if (data.login === login) return;
     const { name, avatar_url, location } = data;
     saveJSON(`user:${login}`, {
       name,
@@ -35,7 +35,8 @@ const GitHubUser = ({ login }) => {
 };
 
 function App() {
-  return <GitHubUser login={"victorizbitskiy"} />;
+  console.log("App");
+  return <GitHubUser login={"moonhighway"} />; // moonhighway  victorizbitskiy objectionary
 }
 
 export default App;
