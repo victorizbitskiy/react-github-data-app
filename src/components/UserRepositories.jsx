@@ -13,6 +13,7 @@ const UserRepositories = ({
       renderSuccess={({ data }) => (
         <RepoMenu
           repositories={data}
+          login={login}
           selectedRepo={selectedRepo}
           onSelect={onSelect}
         />
