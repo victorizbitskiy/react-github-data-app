@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useIterator from '../hooks/useIterator';
-import RepositoryReadme from './RepositoryReadme';
 
-const RepoMenu = ({ repositories, login }) => {
+const RepoMenu = ({ repositories, selected, onSelect = f => f }) => {
   const [{ name }, previous, next] = useIterator(
-    repositories
+    repositories,
+    selected ? repositories.findIndex(repo => repo.name === selected) : 0
   );
 
   return (
-    <>
-      <div style={{ display: 'flex' }}>
-        <button onClick={previous}>&lt;</button>
-        <p>{name}</p>
-        <button onClick={next}>&gt;</button>
-      </div><RepositoryReadme login={login} repo={name} />
-    </>
+    <div style={{ display: 'flex' }}>
+      <button onClick={previous}>&lt;</button>
+      <p>{name}</p>
+      <button onClick={next}>&gt;</button>
+    </div>
   );
 };
 

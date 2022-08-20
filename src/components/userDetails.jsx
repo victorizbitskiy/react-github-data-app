@@ -8,10 +8,6 @@ const userDetails = ({ data }) => {
         src={data.avatar_url}
         alt={data.login}
         style={{ width: 200 }} />
-      <UserRepositories
-        login={data.login}
-        onSelect={repoName => console.log(`${repoName} selected`)}
-      />
     </div>
   );
 };

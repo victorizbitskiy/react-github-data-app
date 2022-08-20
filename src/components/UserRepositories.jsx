@@ -4,17 +4,16 @@ import RepoMenu from './RepoMenu';
 
 const UserRepositories = ({
   login,
-  selectedRepo,
+  repo,
   onSelect = f => f
 }) => {
   return (
     <Fetch
       uri={`https://api.github.com/users/${login}/repos`}
       renderSuccess={({ data }) => (
-        <RepoMenu
+        <RepoMenu 
           repositories={data}
-          login={login}
-          selectedRepo={selectedRepo}
+          selected={repo}
           onSelect={onSelect}
         />
       )}
