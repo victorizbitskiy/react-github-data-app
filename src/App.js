@@ -5,8 +5,8 @@ import RepositoryReadme from "./components/RepositoryReadme";
 import SearchForm from "./components/SearchForm";
 
 function App() {
-  const [login, setLogin] = useState(); // moonhighway  victorizbitskiy objectionary
-  const [repo, setRepo] = useState();
+  const [login, setLogin] = useState(`victorizbitskiy`); // moonhighway  victorizbitskiy objectionary
+  const [repo, setRepo] = useState(`js-snake-game`);
   return (
     <>
       <SearchForm value={login} onSearch={setLogin} />

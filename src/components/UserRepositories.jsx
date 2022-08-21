@@ -11,7 +11,7 @@ const UserRepositories = ({
     <Fetch
       uri={`https://api.github.com/users/${login}/repos`}
       renderSuccess={({ data }) => (
-        <RepoMenu 
+        <RepoMenu
           repositories={data}
           selected={repo}
           onSelect={onSelect}
