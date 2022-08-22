@@ -7,14 +7,24 @@ import SearchForm from "./components/SearchForm";
 function App() {
   const [login, setLogin] = useState(`victorizbitskiy`); // moonhighway  victorizbitskiy objectionary
   const [repo, setRepo] = useState(`js-snake-game`);
+
+  const handleSearch = login => {
+    if (login) return setLogin(login)
+    setLogin('');
+    setRepo('');
+  };
+
+  if (!login)
+    return (
+      <SearchForm value={login} onSearch={handleSearch} />
+    );
+
   return (
     <>
-      <SearchForm value={login} onSearch={setLogin} />
-      {login && <GitHubUser login={login} />}
-      {login && <UserRepositories login={login} repo={repo} onSelect={setRepo} />}
-      {login && repo && (
-        <RepositoryReadme login={login} repo={repo} />
-      )}
+      <SearchForm value={login} onSearch={handleSearch} />
+      <GitHubUser login={login} />
+      <UserRepositories login={login} repo={repo} onSelect={setRepo} />
+      <RepositoryReadme login={login} repo={repo} />
     </>
   );
 }

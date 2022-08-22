@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useIterator from '../hooks/useIterator';
 
 const RepoMenu = ({ repositories, selected, onSelect = f => f }) => {
@@ -7,11 +7,13 @@ const RepoMenu = ({ repositories, selected, onSelect = f => f }) => {
     selected ? repositories.findIndex(repo => repo.name === selected) : null
   );
 
-  onSelect(name);
+  useEffect(() => {
+    onSelect(name)
+  }, [name])
 
   return (
-    <div style={{ display: 'flex' }}>
-      <button onClick={previous}>&lt;</button>
+    <div style={{ display: 'flex' }} >
+      <button onClick={previous} >&lt;</button>
       <p>{name}</p>
       <button onClick={next}>&gt;</button>
     </div>
