@@ -4,7 +4,7 @@ import useIterator from '../hooks/useIterator';
 const RepoMenu = ({ repositories, selected, onSelect = f => f }) => {
   const [{ name }, previous, next] = useIterator(
     repositories,
-    selected ? repositories.findIndex(repo => repo.name === selected) : null
+    selected ? repositories.findIndex(repo => repo.name === selected) : 0
   );
 
   useEffect(() => {
